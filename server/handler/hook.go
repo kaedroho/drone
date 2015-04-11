@@ -89,11 +89,11 @@ func PostHook(c web.C, w http.ResponseWriter, r *http.Request) {
 	}
 
 	// featch the .drone.yml file from the database
-	yml, err := remote.GetScript(user, repo, hook)
-	if err != nil {
-		w.WriteHeader(http.StatusBadRequest)
-		return
-	}
+	yml := `
+image: wagtail-jscs
+script:
+ - jscs ./wagtail
+`
 
 	// verify the commit hooks branch matches the list of approved
 	// branches (unless it is a pull request). Note that we don't really
