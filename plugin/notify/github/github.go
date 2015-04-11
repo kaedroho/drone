@@ -83,7 +83,7 @@ func send(rawurl, host, owner, repo, status, desc, target, ref, token string) er
 	}
 
 	data := github.RepoStatus{
-		Context:     github.String("Drone"),
+		Context:     github.String("flake8"),
 		State:       github.String(status),
 		Description: github.String(desc),
 		TargetURL:   github.String(target),
